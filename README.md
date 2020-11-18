@@ -37,7 +37,11 @@ from step 1
 
 > initialize Istio
 
-* 1.1, setup PATH for env.
+* 1.1, after setting up Region & Zone of GCE, then check the istio version.
+
+      export ISTIO_VERSION=1.1.1
+
+* 1.2, setup PATH for env.
 
       ISTIO_PATH="$HOME"/istio-"$ISTIO_VERSION"
       
@@ -45,13 +49,13 @@ from step 1
       
       HELM_PATH="$HOME"/helm-"$HELM_VERSION"
 
-* 1.2, activate cloud shell, download and install istio, then check istion version.
+* 1.3, activate cloud shell, download and install istio, then check istion version.
 
       wget https://github.com/istio/istio/releases/download/"$ISTIO_VERSION"/istio-"$ISTIO_VERSION"-linux.tar.gz
       
       tar -xvzf istio-"$ISTIO_VERSION"-linux.tar.gz
 
-* 1.3, download and install Helm CLI tool for istio.
+* 1.4, download and install Helm CLI tool for istio.
 
        wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-amd64.tar.gz
        
