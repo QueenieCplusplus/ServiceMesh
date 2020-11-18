@@ -265,6 +265,8 @@ from step 4
           --set prometheus.enabled=true \
           --set tracing.enabled=true
 
-# Istio Access Config
+# Istio Config in GCE
+
+Because Compute Engine instances that you want to add to the service mesh must have access to the Istio control plane services (Pilot, Mixer, Citadel), you must expose these services through the istio-ingressgateway and istio-ilbgateway services. You also expose the Kubernetes DNS server using an internal load balancer so the server can be queried to resolve names for services running in the cluster. You also expose Kiali to visualize the service mesh.
 
 (to be continued...)
