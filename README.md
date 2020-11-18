@@ -3,6 +3,8 @@ Network Architecture of Migrating Microservices of App from On-premise to Cloud
 
 using Istio Mesh to connect and monitor those microsevices in a secure way.
 
+![](https://cloud.google.com/solutions/images/supporting-your-migration-with-istio-mesh-expansion-service-mesh.svg)
+
 # Core Steps:
 
 (1) access the legacy (on-premise) enviroment.
