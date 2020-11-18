@@ -37,8 +37,24 @@ from step 1
 
 > initialize Istio
 
-* 1.1, activate cloud shell, download and install istio, then check istion version.
+* 1.1, setup PATH for env.
+
+      ISTIO_PATH="$HOME"/istio-"$ISTIO_VERSION"
+      
+      HELM_VERSION=v2.13.0
+      
+      HELM_PATH="$HOME"/helm-"$HELM_VERSION"
+
+* 1.2, activate cloud shell, download and install istio, then check istion version.
 
       wget https://github.com/istio/istio/releases/download/"$ISTIO_VERSION"/istio-"$ISTIO_VERSION"-linux.tar.gz
       
       tar -xvzf istio-"$ISTIO_VERSION"-linux.tar.gz
+
+* 1.3, download and install Helm CLI tool for istio.
+
+       wget https://storage.googleapis.com/kubernetes-helm/helm-"$HELM_VERSION"-linux-amd64.tar.gz
+       
+       tar -xvzf helm-"$HELM_VERSION"-linux-amd64.tar.gz
+
+       mv linux-amd64 "$HELM_PATH"
