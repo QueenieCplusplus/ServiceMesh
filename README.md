@@ -62,3 +62,17 @@ from step 1
        tar -xvzf helm-"$HELM_VERSION"-linux-amd64.tar.gz
 
        mv linux-amd64 "$HELM_PATH"
+
+# WAF
+
+from step 2 
+
+> setup fire wall rule for both of the legacy and destination evn.
+
+* 2.1, create a fire wall rule, and its options called desciption and action.
+
+        gcloud compute firewall-rules create bookinfo \
+              --description="Bookinfo App rules" \
+              --action=ALLOW \
+                --rules=tcp:9080,tcp:9081,tcp:9082,tcp:9083,tcp:9084 \
+    --target-tags=bookinfo-legacy-vm
