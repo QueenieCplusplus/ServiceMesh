@@ -264,3 +264,5 @@ from step 4
           --set kiali.dashboard.grafanaURL=http://grafana:3000 \
           --set prometheus.enabled=true \
           --set tracing.enabled=true
+
+(to be continued...)
