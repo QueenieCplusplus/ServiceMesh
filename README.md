@@ -155,3 +155,11 @@ from step 3
           "$(gcloud config get-value project 2> /dev/null)" \
           --member serviceAccount:"$GKE_SERVICE_ACCOUNT_EMAIL" \
           --role roles/logging.logWriter
+
+# GKE
+
+from step 4
+
+> create a GKE cluster
+
+* 4.1, 
