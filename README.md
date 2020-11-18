@@ -162,4 +162,21 @@ from step 4
 
 > create a GKE cluster
 
-* 4.1, 
+* 4.1, below is a cluster with node pool, and assign one one to each zone.
+
+      export GKE_CLUSTER_NAME=istio-migration
+      
+      gcloud container clusters create "$GKE_CLUSTER_NAME" \
+          --addons=HorizontalPodAutoscaling,HttpLoadBalancing \
+          --enable-autoupgrade \
+          --enable-network-policy \
+          --enable-ip-alias \
+          --machine-type=n1-standard-4 \
+          --metadata disable-legacy-endpoints=true \
+          --node-locations us-east1-b,us-east1-c,us-east1-d \
+          --no-enable-legacy-authorization \
+          --no-enable-basic-auth \
+          --no-issue-client-certificate \
+          --num-nodes=1 \
+          --region us-east1 \
+          --service-account="$GKE_SERVICE_ACCOUNT_EMAIL"
