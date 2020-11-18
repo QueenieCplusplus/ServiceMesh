@@ -9,7 +9,7 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (2) provision the target enviroment.
 
-(3)
+(3) config a service mesh.
 
 (4)
 
