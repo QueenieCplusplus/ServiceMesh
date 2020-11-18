@@ -31,7 +31,7 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (10) use Kiali to visualize service mesh
 
-# Istio
+# Istio Account
 
 from step 1
 
@@ -180,3 +180,9 @@ from step 4
           --num-nodes=1 \
           --region us-east1 \
           --service-account="$GKE_SERVICE_ACCOUNT_EMAIL"
+
+          [output]
+          
+          NAME             LOCATION  MASTER_VERSION  MASTER_IP      MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
+          
+      istio-migration  us-east1  1.11.7-gke.4    35.196.136.88  n1-standard-8  1.11.7-gke.4  3          RUNNING
