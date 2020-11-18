@@ -101,6 +101,11 @@ from step 1
           
         // create GCE.
         
+        [output]
+        
+        NAME           ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP   STATUS
+       legacy-vm      us-east1-b  n1-standard-1               10.142.0.38  34.73.53.145  RUNNING
+        
 # WAF
 
 from step 2 
