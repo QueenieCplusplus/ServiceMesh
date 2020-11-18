@@ -27,3 +27,5 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (8) retire (1).
 
+(9) use Kiali to visualize service mesh
+
