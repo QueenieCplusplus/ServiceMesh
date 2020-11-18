@@ -63,6 +63,16 @@ from step 1
 
        mv linux-amd64 "$HELM_PATH"
 
+* 1.5, init the istio account for the GCE that runs a specific microservice.
+
+      GCE_SERVICE_ACCOUNT_NAME=istio-migration-gce
+      // init env variable to sys
+      
+      gcloud iam service-accounts create "$GCE_SERVICE_ACCOUNT_NAME" 
+         --display-name="$GCE_SERVICE_ACCOUNT_NAME"
+      
+
+       
 # WAF
 
 from step 2 
