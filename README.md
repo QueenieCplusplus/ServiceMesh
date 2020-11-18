@@ -7,7 +7,7 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (1) access the legacy (on-premise) enviroment.
 
-(2)
+(2) provision the target enviroment.
 
 (3)
 
