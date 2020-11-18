@@ -11,21 +11,23 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 # Core Steps:
 
-(1) access the legacy (on-premise) enviroment.
+(1) prepare istio.
 
-(2) provision the target enviroment.
+(2) access the legacy (on-premise) enviroment.
 
-(3) config a service mesh.
+(3) provision the target enviroment.
 
-(4) add service in (1) into (3).
+(4) config a service mesh.
 
-(5) deploy services in (3).
+(5) add service in (1) into (3).
 
-(6) split traffic by setting up Routing Rule.
+(6) deploy services in (3).
 
-(7) route traffice to (3).
+(7) split traffic by setting up Routing Rule.
 
-(8) retire (1).
+(8) route traffice to (3).
 
-(9) use Kiali to visualize service mesh
+(9) retire (1).
+
+(10) use Kiali to visualize service mesh
 
