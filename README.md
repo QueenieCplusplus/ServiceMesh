@@ -31,3 +31,14 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (10) use Kiali to visualize service mesh
 
+# Istio
+
+from step 1
+
+> initialize Istio
+
+* 1.1, activate cloud shell, download and install istio, then check istion version.
+
+      wget https://github.com/istio/istio/releases/download/"$ISTIO_VERSION"/istio-"$ISTIO_VERSION"-linux.tar.gz
+      
+      tar -xvzf istio-"$ISTIO_VERSION"-linux.tar.gz
