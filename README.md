@@ -63,6 +63,8 @@ from step 1
 
        mv linux-amd64 "$HELM_PATH"
 
+# Legacy
+
 * 1.5, init the istio account and email address for the GCE that runs a specific microservice.
 
       GCE_SERVICE_ACCOUNT_NAME=istio-migration-gce
