@@ -122,3 +122,36 @@ from step 2
               --rules=tcp:9080,tcp:9081,tcp:9082,tcp:9083,tcp:9084 \
               --target-tags=bookinfo-legacy-vm
 
+# Target
+
+from step 3
+
+> provision the target env.
+
+* 3.1, 
+
+      GKE_SERVICE_ACCOUNT_NAME=istio-migration-gke
+
+      gcloud iam service-accounts create "$GKE_SERVICE_ACCOUNT_NAME" \
+          --display-name="$GKE_SERVICE_ACCOUNT_NAME
+          
+      GKE_SERVICE_ACCOUNT_EMAIL="$(gcloud iam service-accounts list \
+         --format='value(email)' \
+         --filter=displayName:"$GKE_SERVICE_ACCOUNT_NAME")"
+         
+* 3.2, grant role to the microservices.
+
+      gcloud projects add-iam-policy-binding \
+          "$(gcloud config get-value project 2> /dev/null)" \
+          --member serviceAccount:"$GKE_SERVICE_ACCOUNT_EMAIL" \
+          --role roles/monitoring.viewer
+          
+      gcloud projects add-iam-policy-binding \
+          "$(gcloud config get-value project 2> /dev/null)" \
+          --member serviceAccount:"$GKE_SERVICE_ACCOUNT_EMAIL" \
+          --role roles/monitoring.metricWriter
+          
+      gcloud projects add-iam-policy-binding \
+          "$(gcloud config get-value project 2> /dev/null)" \
+          --member serviceAccount:"$GKE_SERVICE_ACCOUNT_EMAIL" \
+          --role roles/logging.logWriter
