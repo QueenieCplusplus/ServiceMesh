@@ -7,6 +7,8 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 ![](https://cloud.google.com/solutions/images/supporting-your-migration-with-istio-mesh-expansion-legacy-data-center.svg)
 
+![gui](https://cloud.google.com/solutions/images/supporting-your-migration-with-istio-mesh-expansion-visualize-mesh.png)
+
 # Core Steps:
 
 (1) access the legacy (on-premise) enviroment.
