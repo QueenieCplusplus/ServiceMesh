@@ -81,7 +81,26 @@ from step 1
       gcloud projects add-iam-policy-binding "$(gcloud config get-value project 2> /dev/null)" \
                  --member serviceAccount:"$GCE_SERVICE_ACCOUNT_EMAIL" \
                  --role roles/compute.viewer
+ 
+ * 1.7 create GCE VM for app in legacy env.
+ 
+       export GCE_INSTANCE_NAME=legacy-vm
+       // init env varibale in sys.
        
+       gcloud compute instances create "$GCE_INSTANCE_NAME" \
+          --boot-disk-device-name="$GCE_INSTANCE_NAME" \
+          --boot-disk-size=10GB \
+           --boot-disk-type=pd-ssd \
+          --image-family=ubuntu-1804-lts \
+          --image-project=ubuntu-os-cloud \
+          --machine-type=n1-standard-1 \
+          --metadata-from-file startup-script="$HOME"/solutions-istio-mesh-expansion-migration/gce-startup.sh \
+          --scopes=storage-ro,logging-write,monitoring-write,service-control,service-management,trace \
+          --service-account="$GCE_SERVICE_ACCOUNT_EMAIL" \
+          --tags=bookinfo-legacy-vm
+          
+        // create GCE.
+        
 # WAF
 
 from step 2 
@@ -95,3 +114,4 @@ from step 2
               --action=ALLOW \
               --rules=tcp:9080,tcp:9081,tcp:9082,tcp:9083,tcp:9084 \
               --target-tags=bookinfo-legacy-vm
+
