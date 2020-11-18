@@ -11,6 +11,6 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (3) config a service mesh.
 
-(4)
+(4) add service in (1) into (3).
 
 (5)
