@@ -69,10 +69,10 @@ from step 2
 
 > setup fire wall rule for both of the legacy and destination evn.
 
-* 2.1, create a fire wall rule, and its options called desciption and action.
+* 2.1, create a fire wall rule, and its options called desciption, action, rules.
 
         gcloud compute firewall-rules create bookinfo \
               --description="Bookinfo App rules" \
               --action=ALLOW \
-                --rules=tcp:9080,tcp:9081,tcp:9082,tcp:9083,tcp:9084 \
-    --target-tags=bookinfo-legacy-vm
+              --rules=tcp:9080,tcp:9081,tcp:9082,tcp:9083,tcp:9084 \
+              --target-tags=bookinfo-legacy-vm
