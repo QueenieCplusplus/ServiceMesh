@@ -243,4 +243,24 @@ from step 4
             NAME                        SECRETS  AGE
             istio-init-service-account  1        1s
 
+* 4.3, check out the Istion CRDs service will commit to GKE.
 
+            kubectl get crds | grep 'istio.io\|certmanager.k8s.io' | wc -l
+            
+            [output]
+            53
+            
+* 4.4, install Istion Chart.
+
+        "$HELM_PATH"/helm install "$ISTIO_PATH"/install/kubernetes/helm/istio \
+          --name istio \
+          --namespace "$ISTIO_NAMESPACE" \
+          --set gateways.istio-ilbgateway.enabled=true \
+          --set global.meshExpansion.enabled=true \
+          --set global.meshExpansion.useILB=true \
+          --set grafana.enabled=true \
+          --set kiali.enabled=true \
+          --set kiali.createDemoSecret=true \
+          --set kiali.dashboard.grafanaURL=http://grafana:3000 \
+          --set prometheus.enabled=true \
+          --set tracing.enabled=true
