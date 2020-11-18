@@ -17,7 +17,7 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (3) provision the target enviroment.
 
-(4) config a service mesh.
+(4) config a service mesh by creating GKE cluster with node pool and install Istio in cluster.
 
 (5) add service in (1) into (3).
 
@@ -186,3 +186,61 @@ from step 4
           NAME             LOCATION  MASTER_VERSION  MASTER_IP      MACHINE_TYPE   NODE_VERSION  NUM_NODES  STATUS
           
       istio-migration  us-east1  1.11.7-gke.4    35.196.136.88  n1-standard-8  1.11.7-gke.4  3          RUNNING
+
+# Istio Service
+
+* 4.2, install Istion in GKE cluster using Helm CLI tool.
+
+       export ISTIO_NAMESPACE=istio-system
+       // using Namespace name for cluster, to init env variable
+       
+       kubectl apply -f "$ISTIO_PATH"/install/kubernetes/namespace.yaml
+       // create Istion Namespace
+       
+       kubectl apply -f "$ISTIO_PATH"/install/kubernetes/helm/helm-service-account.yaml
+       // this is a side service in Hell, called Tiller.
+       
+       "$HELM_PATH"/helm init --service-account tiller
+       // install tiller in cluster.
+       
+       "$HELM_PATH"/helm install "$ISTIO_PATH"/install/kubernetes/helm/istio-init --name istio-init --namespace "$ISTIO_NAMESPACE"
+       //Install the istio-init chart to bootstrap all Istio's custom resource definitions.
+       
+       [output]
+       
+            NAME:   istio-init
+            LAST DEPLOYED: Wed Nov 18 13:15:12 2020
+            
+            NAMESPACE: istio-system
+            STATUS: DEPLOYED
+            
+            RESOURCES:
+            
+            ==> v1/ClusterRole
+            NAME                     AGE
+            istio-init-istio-system  1s
+            
+            ==> v1/ClusterRoleBinding
+            NAME                                        AGE
+            istio-init-admin-role-binding-istio-system  1s
+            
+            ==> v1/ConfigMap
+            NAME          DATA  AGE
+            istio-crd-10  1     1s
+            istio-crd-11  1     1s
+            
+            ==> v1/Job
+            NAME               COMPLETIONS  DURATION  AGE
+            istio-init-crd-10  0/1          1s        1s
+            istio-init-crd-11  0/1          1s        1s
+            
+            ==> v1/Pod(related)
+            NAME                     READY  STATUS             RESTARTS  AGE
+            istio-init-crd-10-2s28z  0/1    ContainerCreating  0         1s
+            istio-init-crd-11-28n9r  0/1    ContainerCreating  0         1s
+            
+            ==> v1/ServiceAccount
+            NAME                        SECRETS  AGE
+            istio-init-service-account  1        1s
+
+
