@@ -37,7 +37,7 @@ from step 1
 
 > initialize Istio
 
-* 1.1, after setting up Region & Zone of GCE, then check the istio version.
+* 1.1, after setting up Region & Zone of GCE, then init the istio version env variable in sys.
 
       export ISTIO_VERSION=1.1.1
 
