@@ -17,4 +17,5 @@ using Istio Mesh to connect and monitor those microsevices in a secure way.
 
 (6) split traffic by setting up Routing Rule.
 
+(7) route traffice to target enviroment.
 
