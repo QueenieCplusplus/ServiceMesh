@@ -76,6 +76,11 @@ from step 1
           --format='value(email)' \
           --filter=displayName:"$GCE_SERVICE_ACCOUNT_NAME")"
 
+* 1.6, bind role for the specific microservice in app.
+
+      gcloud projects add-iam-policy-binding "$(gcloud config get-value project 2> /dev/null)" \
+                 --member serviceAccount:"$GCE_SERVICE_ACCOUNT_EMAIL" \
+                 --role roles/compute.viewer
        
 # WAF
 
